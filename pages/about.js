@@ -22,8 +22,8 @@ export default function Home() {
 
       <main className={styles.main}>
 
-        <Headline title="Main">
-          <code className={styles.code}>pages/Main.js</code>
+        <Headline title="about">
+          <code className={styles.code}>pages/about.js</code>
         </Headline>
 
         <Links />
