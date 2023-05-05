@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 const inter = Inter({ subsets: ['latin'] })
 
 export function Headline(props) {
-  console.log(props);
 
   useEffect(() => {
     // console.log("マウント時");

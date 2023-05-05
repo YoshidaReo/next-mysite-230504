@@ -17,20 +17,20 @@ export default function Home() {
   // let foo = 1;
 
   // メソットを書くのはコンポーネント内外に書く。内部で引数を再レンダリングしないようするためにuseCallbackを使う。
-  const handleClick = (e) => {
-    setCount((count) => count + 1);
-    setCount((count) => count + 1);
-    
-  };
+  const handleClick = useCallback(() => {
+    if (count < 10) {
+      setCount((count) => count + 1);
+    }
+  }, [count]);
 
   useEffect(() => {
     // "マウント時"
     document.body.style.backgroundColor = "lightblue";
     return () => {
-      // "アンマウント時"
+      // "アンマウント時(空配列のみ.それ以外は最初に処理される)"
       document.body.style.backgroundColor = "";
     };
-  }, []);
+  }, [count]);
 
   return (
     <>
