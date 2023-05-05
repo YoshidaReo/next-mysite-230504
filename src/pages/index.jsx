@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 import {Headline} from '../components/Headline'
 import {Links} from '../components/Links'
 import {Header} from '../components/Header'
