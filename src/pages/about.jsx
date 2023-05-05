@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import {Headline} from '../components/Headline'
 import {Links} from '../components/Links'
 import {Header} from '../components/Header'
-import {Content} from '../components/content'
+import {Content} from '../components/Content'
 
 const inter = Inter({ subsets: ['latin'] })
 
