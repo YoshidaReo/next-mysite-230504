@@ -5,7 +5,7 @@ import {Headline} from '../components/Headline'
 import {Links} from '../components/Links'
 import {Header} from '../components/Header'
 import {Content} from '../components/Content'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,14 +13,15 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
-  const foo = 1;
+  const [count, setCount] = useState(1);
+  // let foo = 1;
 
   // メソットを書くのはコンポーネント内外に書く。内部で引数を再レンダリングしないようするためにuseCallbackを使う。
-  const handleClick = useCallback((e) => {
-    console.log(e.target.href);
-    e.preventDefault();
-    alert(foo);
-  }, []);
+  const handleClick = (e) => {
+    setCount((count) => count + 1);
+    setCount((count) => count + 1);
+    
+  };
 
   useEffect(() => {
     // "マウント時"
@@ -30,8 +31,6 @@ export default function Home() {
       document.body.style.backgroundColor = "";
     };
   }, []);
-
-
 
   return (
     <>
@@ -46,13 +45,16 @@ export default function Home() {
 
       <main className={styles.main}>
         <Header />
+        <h1>
+          {count}
+        </h1>
 
-        <a
+        <button
           href='/about'
           onClick={handleClick}
         >
           ボタン
-        </a>
+        </button>
 
         <Headline title="Main">
           <code className={styles.code}>pages/Main.js</code>
