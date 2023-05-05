@@ -5,10 +5,23 @@ import {Headline} from '../components/Headline'
 import {Links} from '../components/Links'
 import {Header} from '../components/Header'
 import {Content} from '../components/Content'
+import { useCallback } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
+
+
 export default function Home() {
+  const foo = 1;
+
+  // メソットを書くのはコンポーネント内外に書く。内部で引数を再レンダリングしないようするためにuseCallbackを使う。
+  const handleClick = useCallback((e) => {
+    console.log(e.target.href);
+    e.preventDefault();
+    alert(foo);
+  }, []);
+
   return (
     <>
       <Head>
@@ -18,13 +31,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      
 
       <main className={styles.main}>
+        <Header />
+
+        <a
+          href='/about'
+          onClick={handleClick}
+        >
+          ボタン
+        </a>
 
         <Headline title="Main">
           <code className={styles.code}>pages/Main.js</code>
         </Headline>
+
 
         <Links />
         
