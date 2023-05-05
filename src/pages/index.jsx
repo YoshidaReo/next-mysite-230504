@@ -5,7 +5,7 @@ import {Headline} from '../components/Headline'
 import {Links} from '../components/Links'
 import {Header} from '../components/Header'
 import {Content} from '../components/Content'
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +21,17 @@ export default function Home() {
     e.preventDefault();
     alert(foo);
   }, []);
+
+  useEffect(() => {
+    // "マウント時"
+    document.body.style.backgroundColor = "lightblue";
+    return () => {
+      // "アンマウント時"
+      document.body.style.backgroundColor = "";
+    };
+  }, []);
+
+
 
   return (
     <>
